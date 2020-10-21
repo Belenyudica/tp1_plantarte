@@ -1,0 +1,421 @@
+@import url('https://fonts.googleapis.com/css2?family=Faustina:wght@600&family=Oleo+Script:wght@700&display=swap');
+$color-primario:#B07D62;
+$color-secundario:black;
+$color-terciario: whitesmoke;
+
+@mixin shadowcard {
+    -webkit-box-shadow: 10px 10px 17px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 17px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 17px 0px rgba(0,0,0,0.75);   
+}
+
+@mixin displaycard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+}
+
+@mixin tamanioCardResponsive {
+    width: 150px;
+    height: 150px;
+    
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: $color-primario;
+}
+
+header {
+    position: absolute;
+    z-index: 2;
+    color: $color-secundario;
+    a {
+        color: $color-secundario;
+        font-size: 300%;
+        margin-left: 12px;
+    }
+
+}
+
+#menu {
+    height: 155px;
+    background-color:$color-secundario;
+    position: relative;
+    top: -50; 
+    opacity: 0;
+    background:rgb(39, 39,39);
+    width: 0px;
+    transition: width 0.8s, opacity 0.8s;
+    a {
+        color:$color-terciario;
+        text-decoration: none;
+        list-style: none;
+        
+    }
+}
+
+#menu:target {
+    width: 500px;
+    opacity: 95%;
+    z-index:3;
+  
+}
+#menu ul li {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.nombre {
+    margin-top: -36px;
+    h1 {
+        font-size: 500%;
+        font-family: 'Oleo Script', cursive;
+        }
+}
+
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    img {
+        width: 200px;
+
+        margin-top: -370px; 
+    }
+}
+
+
+menu {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    margin-top: -320px;
+    margin-right: 60px;
+}
+
+.menu-principal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 350px;
+    list-style: none;
+    font-size: 110%;
+
+}
+
+.menu-interior {
+    visibility: hidden;
+    padding: 0;
+
+    position: absolute;
+
+    background-color: $color-secundario;
+    border: 1px solid $color-terciario;
+    color: $color-primario;
+
+    width: 120px;
+    li {
+        padding: 5px;
+    
+        border-bottom: 1px solid $color-terciario; 
+    }
+}
+
+.menu-interior li:hover {
+    background-color: $color-terciario;
+}
+
+.menu-principal li:hover .menu-interior {
+    visibility: visible;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    margin-top: 300px;
+    img {
+        width: 300px;
+        height: 200px;
+    
+        margin-top: 0px;
+        margin-bottom: 20px;
+        p {
+            margin-top: 0px; 
+        }
+    } 
+    .card1 {
+        width: 300px;
+        height: 400px;
+    
+        border:  1px solid $color-secundario;
+    
+        @include displaycard();
+    
+        @include shadowcard();
+
+        background-color: #D4A276;
+    }
+    
+    .card2 {
+        width: 300px;
+        height: 400px;
+    
+        border:  1px solid $color-secundario;
+    
+        @include displaycard();
+    
+        @include shadowcard();
+
+        background-color: #BC8A5F;
+    }
+
+    .card3 {
+        width: 300px;
+        height: 400px;
+    
+        border:  1px solid $color-secundario;
+    
+        @include displaycard();
+
+        @include shadowcard();
+
+        background-color: #A47148;
+    
+    }
+}
+
+.parallax {
+    height: 60vh;
+    background-repeat: no-repeat;
+    background-image: url(../Imagenes/nursery.jpg);
+    background-attachment: fixed;
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    p {
+        color: $color-terciario;
+        font-size: 1.3em;
+        border:  1px solid $color-secundario;
+        background-color:$color-secundario;
+        opacity: 60%;
+    }
+}
+
+
+.social {
+    background-color:$color-secundario;
+    font-size: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: -2px;
+
+    height: 2.5em;
+    i {
+        color: $color-primario;
+        margin: 8px;
+    }
+    
+}
+
+.up {
+    border-radius: 50%;
+    background-color: $color-terciario;
+    border: 2px solid $color-secundario;
+    width: 30px;
+    height: 30px;
+    flex-direction: row;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    img {
+        width: 30px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .menu-principal {
+        display: none;
+    }
+    .up {
+        display: none;
+    }
+
+    .logo {
+        margin-top: -10px;
+        img {
+            width: 100px;
+            height: 50px;
+        }
+    }
+    
+    .nombre {
+        margin-top: -94px;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        h1 {
+            font-size: 60px; 
+        }
+    }
+    
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 5px; 
+        
+        width: 100px;
+        height: 100px;
+        h2 {
+            font-size: 15px;
+        }
+        img {
+            width: 150px;
+            height: 100px;
+    
+            margin-bottom: -8px;
+        }  
+        p {
+            display:none;
+        }
+    }
+    
+    .card .card1 {
+        @include tamanioCardResponsive()
+
+        margin-top: 453px;
+        margin-right: -274px;
+        margin-bottom: -40px;
+
+    }
+    .card .card2 {
+        @include tamanioCardResponsive()
+
+        margin-top: 47px;
+        margin-right: -274px;
+        margin-bottom: -92px;
+        
+    }
+
+    .card .card3 {
+        @include tamanioCardResponsive()
+
+        margin-top: 104px; 
+        margin-left: 272px;
+        margin-bottom: -400px;
+    
+    }
+    
+    .parallax {
+        display: none;
+    }
+    .parallax p {
+        display: none;
+    }
+    
+    .social {
+        margin-top: 600px;
+        height: 63px;
+        i {
+            font-size: 30px;
+        }
+    }
+}
+
+@media (min-width: 451px) and (max-width: 800px) {
+    
+    .container {
+        height: 100vh;
+        display: grid;
+
+        grid-template-rows: 1fr 2fr 2fr 3fr 1fr 1fr;
+
+
+        grid-template-areas: 
+        "burguer"
+        "logo"
+        "nombre"
+        "card"
+        "parallax"
+        "social";
+    }
+
+    .burguer {
+        grid-area: burguer;
+    }
+
+    .logo {
+        grid-area: logo;
+
+        margin-top: -60px;
+    }
+    .nombre {
+        grid-area: nombre;
+
+        margin-top: -60px;
+    }
+
+    .card {
+        grid-area: card;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+    }
+    .card1 {
+        margin-top: 37px;
+        margin-bottom: 111px;
+    }
+    .card2 {
+        margin-top:-57px;
+    }
+    .card3 {
+        margin-top: 48px;
+    }
+    
+    .social {
+        grid-area: social;
+
+        height: 80px;
+        margin-top: 200px;
+       
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        
+    }
+
+    .parallax {
+        grid-area: parallax;
+        height: 350px;
+
+    }
+    .menu-principal {
+        display: none;
+    }
+    .up {
+        display:none;
+    }
+   
+}
+
+
+    
+    
+
